@@ -20,7 +20,7 @@ Built step-by-step to help understand real-world data analysis.
 - Python 3.x  
 - Pandas  
 - NumPy  
-- Matplotlib *(coming soon)*  
+- Matplotlib
 - VS Code
 
 ---
