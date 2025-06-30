@@ -59,10 +59,18 @@ def plot_salary_chart(data):
     plt.show()
     print("Chart saved to plots/salary_chart.png")
 
+def show_top_earners(data, count=3):
+    print(f"\n💼 Top {count} Earners:")
+    top_earners = data.sort_values(by="Salary", ascending=False).head(count)
+    print(top_earners[["Name", "Salary"]])
+
+
 # ---- MAIN ----
 df = load_data("data/sample.csv")
 if df is not None:
     summarize_data(df)
-    df = handle_missing_data(df)   # new step
+    df = handle_missing_data(df)
     plot_salary_chart(df)
+    show_top_earners(df)
+
 
