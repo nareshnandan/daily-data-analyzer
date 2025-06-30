@@ -11,6 +11,24 @@ def load_data(filepath):
     except Exception as e:
         print("Error loading file:", e)
         return None
+    
+def handle_missing_data(data):
+    print("\n🧹 Handling Missing Data")
+    print("-" * 40)
+    print("Before cleaning:")
+    print(data.isnull().sum())
+
+    # Fill missing Age with average Age
+    if "Age" in data.columns:
+        mean_age = data["Age"].mean()
+        data["Age"].fillna(mean_age, inplace=True)
+
+    # Drop rows where Salary is missing
+    data.dropna(subset=["Salary"], inplace=True)
+
+    print("\nAfter cleaning:")
+    print(data.isnull().sum())
+    return data
 
 # Summarize the data
 def summarize_data(data):
@@ -45,4 +63,6 @@ def plot_salary_chart(data):
 df = load_data("data/sample.csv")
 if df is not None:
     summarize_data(df)
+    df = handle_missing_data(df)   # new step
     plot_salary_chart(df)
+
