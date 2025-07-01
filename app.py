@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def load_data(filepath):
     try:
         data = pd.read_csv(filepath)
-        print("✅ Data loaded successfully.")
+        print("Data loaded successfully.")
         print(data.head())
         return data
     except Exception as e:
@@ -13,7 +13,7 @@ def load_data(filepath):
         return None
     
 def handle_missing_data(data):
-    print("\n🧹 Handling Missing Data")
+    print("\n Handling Missing Data")
     print("-" * 40)
     print("Before cleaning:")
     print(data.isnull().sum())
@@ -26,7 +26,7 @@ def handle_missing_data(data):
     # Drop rows where Salary is missing
     data.dropna(subset=["Salary"], inplace=True)
 
-    print("\nAfter cleaning:")
+    print("\n After cleaning:")
     print(data.isnull().sum())
     return data
 
@@ -60,7 +60,7 @@ def plot_salary_chart(data):
     print("Chart saved to plots/salary_chart.png")
 
 def show_top_earners(data, count=3):
-    print(f"\n💼 Top {count} Earners:")
+    print(f"\n Top {count} Earners:")
     top_earners = data.sort_values(by="Salary", ascending=False).head(count)
     print(top_earners[["Name", "Salary"]])
 
@@ -72,5 +72,4 @@ if df is not None:
     df = handle_missing_data(df)
     plot_salary_chart(df)
     show_top_earners(df)
-
 

@@ -11,6 +11,9 @@ Built step-by-step to help understand real-world data analysis.
 - Display first few rows  
 - Get shape, column types, missing values  
 - Statistical summary of the dataset  
+- Handle missing data (fill missing Age, drop missing Salary)  
+- Show top 3 highest earners  
+- Visualize salary distribution using bar charts  
 - Simple and clean code for daily practice  
 
 ---
