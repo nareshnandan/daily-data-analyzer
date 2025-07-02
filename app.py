@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 
 # Load CSV Data
 def load_data(filepath):
+    if not filepath.endswith(".csv"):
+        print("Error: Only CSV files are supported.")
+        return None
+
     try:
         data = pd.read_csv(filepath)
         print("Data loaded successfully.")
@@ -11,6 +15,7 @@ def load_data(filepath):
     except Exception as e:
         print("Error loading file:", e)
         return None
+
     
 def handle_missing_data(data):
     print("\n Handling Missing Data")
