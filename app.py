@@ -68,6 +68,11 @@ def show_top_earners(data, count=3):
     print(f"\n Top {count} Earners:")
     top_earners = data.sort_values(by="Salary", ascending=False).head(count)
     print(top_earners[["Name", "Salary"]])
+    
+    # Save to CSV
+    top_earners.to_csv("data/top_earners.csv", index=False)
+    print("✅ Top earners saved to data/top_earners.csv")
+
 
 
 # ---- MAIN ----
